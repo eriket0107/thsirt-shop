@@ -1,8 +1,9 @@
 'use client'
+import { useState } from 'react'
+
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
 import { Arrow } from './components/Arrow'
-import { useState } from 'react'
 
 interface SliderProps {
   children: React.ReactNode
@@ -39,7 +40,7 @@ export function Slider({ children }: SliderProps) {
   })
   const maxLength = slidesLength - 2
   return (
-    <div ref={sliderRef} className="keen-slider relative z-0 flex">
+    <div ref={sliderRef} className="keen-slider relative z-0 max-h-[600px]">
       {children}
       {currentSlide > 0 && (
         <Arrow isLeft={true} onClick={() => instanceRef.current?.prev()} />

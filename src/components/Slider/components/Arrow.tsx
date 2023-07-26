@@ -16,11 +16,12 @@ export function Arrow({ isLeft, onClick }: ArrowProps) {
       h-full
       w-32 
       flex-1 
+      cursor-pointer 
       items-center 
       justify-center 
       bg-gradient-to-r 
       from-transparent 
-      to-gray-900 
+      to-gray-900
       shadow-md
       ${isLeft ? 'scale-x-[-1]' : 'scale-x-1'}
       ${isLeft ? 'left-0' : 'right-0'}
