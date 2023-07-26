@@ -1,9 +1,9 @@
 interface ProductsPageProps {
   params: {
-    id: string
+    productId: string
   }
 }
 
 export default function ProductPage({ params }: ProductsPageProps) {
-  return <div>ProductsPage:{params.id}</div>
+  return <div>ProductsPage:{params.productId}</div>
 }
