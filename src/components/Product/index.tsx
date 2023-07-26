@@ -1,12 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import camiseta1 from '@/assets/1.png'
+interface ProductProps {
+  id: string
+  name: string
+  imageUrl: string
+  price: number
+}
 
-export function Product() {
+export function Product({ product }: { product: ProductProps }) {
   return (
     <Link
-      href="#"
+      href={`/products/${product.id}`}
       className="
       keen-slider__slide 
       group  
@@ -21,11 +26,12 @@ export function Product() {
       to-purple-500
       p-1
       "
+      key={product.id}
     >
       <Image
         className="object-cover"
-        src={camiseta1}
-        alt="Camiseta 1"
+        src={product.imageUrl}
+        alt={`Imagem de ${product.name}`}
         width={520}
         height={480}
       />
@@ -49,8 +55,8 @@ export function Product() {
         group-hover:transition-all
         "
       >
-        <strong className="text-xl">Camiseta 1</strong>
-        <span className="text-xl text-green-30">R$ 79,90</span>
+        <strong className="text-xl">{product.name}</strong>
+        <span className="text-xl text-green-30">{product.price}</span>
       </footer>
     </Link>
   )
