@@ -6,9 +6,6 @@ export default function Home() {
     <main className="min-h-home ml-auto flex w-full max-w-spaceLeft gap-12">
       <Slider>
         <Product />
-        <Product />
-        <Product />
-        <Product />
       </Slider>
     </main>
   )
