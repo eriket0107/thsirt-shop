@@ -3,6 +3,8 @@ import Stripe from 'stripe'
 import { Product } from '@/components/Product'
 import { Slider } from '@/components/Slider'
 import { stripe } from '@/lib/stripe'
+import { Suspense } from 'react'
+import LoadingProduct from './loading'
 
 interface Product {
   id: string
@@ -11,7 +13,9 @@ interface Product {
   price: number
 }
 
-export const getProducts = async (): Promise<Product[]> => {
+export const revalidate = 60
+
+const getProducts = async (): Promise<Product[]> => {
   const response = await stripe.products.list({
     expand: ['data.default_price'],
   })
@@ -27,7 +31,6 @@ export const getProducts = async (): Promise<Product[]> => {
       price: price.unit_amount / 100,
     }
   })
-
   return products
 }
 
@@ -37,9 +40,11 @@ export default async function Home() {
   return (
     <main className="min-h-home ml-auto flex w-full max-w-spaceLeft gap-12">
       <Slider>
-        {products.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
+        <Suspense fallback={<LoadingProduct />}>
+          {products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
+        </Suspense>
       </Slider>
     </main>
   )
