@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { priceFormat } from '@/functions/helpers/priceFormat'
+
 interface ProductProps {
   id: string
   name: string
@@ -56,7 +58,9 @@ export function Product({ product }: { product: ProductProps }) {
         "
       >
         <strong className="text-xl">{product.name}</strong>
-        <span className="text-xl text-green-30">{product.price}</span>
+        <span className="text-xl text-green-30">
+          {priceFormat(product.price)}
+        </span>
       </footer>
     </Link>
   )
