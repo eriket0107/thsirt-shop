@@ -28,7 +28,6 @@ export function Product({ product }: { product: ProductProps }) {
       to-purple-500
       p-1
       "
-      key={product.id}
     >
       <Image
         className="object-cover"
