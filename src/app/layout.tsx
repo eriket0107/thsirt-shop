@@ -1,8 +1,9 @@
+import { Header } from '@/components/Header'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({ weight: ['400'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +16,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html className={roboto.className} lang="en">
+      <body className="bg-gray-90 text-gray-10">
+        <div className="flex min-h-screen flex-col items-start justify-center">
+          <Header />
+          {children}
+        </div>
+      </body>
     </html>
   )
 }
