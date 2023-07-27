@@ -2,15 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { priceFormat } from '@/functions/helpers/priceFormat'
+import { ProductType } from '@/interfaces'
 
-interface ProductProps {
-  id: string
-  name: string
-  imageUrl: string
-  price: number
-}
-
-export function Product({ product }: { product: ProductProps }) {
+export function Product({ product }: { product: ProductType }) {
   return (
     <Link
       href={`/products/${product.id}`}
