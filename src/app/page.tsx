@@ -1,21 +1,18 @@
+import { Suspense } from 'react'
+
 import Stripe from 'stripe'
+
+import { stripe } from '@/lib/stripe'
+
+import { ProductType } from '@/interfaces'
 
 import { Product } from '@/components/Product'
 import { Slider } from '@/components/Slider'
-import { stripe } from '@/lib/stripe'
-import { Suspense } from 'react'
 import LoadingProduct from './loading'
-
-interface Product {
-  id: string
-  name: string
-  imageUrl: string
-  price: number
-}
 
 export const revalidate = 60
 
-const getProducts = async (): Promise<Product[]> => {
+const getProducts = async (): Promise<ProductType[]> => {
   const response = await stripe.products.list({
     expand: ['data.default_price'],
   })
@@ -35,7 +32,7 @@ const getProducts = async (): Promise<Product[]> => {
 }
 
 export default async function Home() {
-  const products: Product[] = await getProducts()
+  const products: ProductType[] = await getProducts()
 
   return (
     <main className="min-h-home ml-auto flex w-full max-w-spaceLeft gap-12">

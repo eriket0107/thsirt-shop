@@ -1,12 +1,8 @@
 import ArrowIcon from '@/assets/arrowRight.svg'
+import { ArrowType } from '@/interfaces'
 import Image from 'next/image'
 
-interface ArrowProps {
-  isLeft: boolean
-  onClick: () => void
-}
-
-export function Arrow({ isLeft, onClick }: ArrowProps) {
+export function Arrow({ isLeft, onClick }: ArrowType) {
   return (
     <div
       className={`

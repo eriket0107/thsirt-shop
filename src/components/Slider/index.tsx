@@ -1,15 +1,11 @@
 'use client'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
 import { Arrow } from './components/Arrow'
 
-interface SliderProps {
-  children: React.ReactNode
-}
-
-export function Slider({ children }: SliderProps) {
+export function Slider({ children }: { children: ReactNode }) {
   const [slidesLength, setSlidesLength] = useState<number>(0)
   const [currentSlide, setCurrentSlide] = useState<number>(0)
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
