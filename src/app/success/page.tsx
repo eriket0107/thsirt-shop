@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Stripe from 'stripe'
 import { stripe } from '@/lib/stripe'
 
-export async function getSessionProduct(sessionId: string) {
+async function getSessionProduct(sessionId: string) {
   const session = await stripe.checkout.sessions.retrieve(sessionId, {
     expand: ['line_items', 'line_items.data.price.product'],
   })
@@ -37,6 +37,7 @@ export default async function Success({
       <Image
         src={sessionProduct.product.imageUrl}
         alt={`Imagem de ${sessionProduct.product.name}`}
+        placeholder="blur"
         width={115}
         height={106}
         className="
