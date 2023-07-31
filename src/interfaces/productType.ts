@@ -3,4 +3,6 @@ export interface ProductType {
   name: string
   imageUrl: string
   price: number
+  description?: string
+  defaultPriceId?: string
 }

@@ -1,7 +1,8 @@
 'use client'
 import axios from 'axios'
 import { useState } from 'react'
-import { CheckoutButton } from '@/interfaces/checkoutButton'
+import { CheckoutButton } from '@/interfaces'
+
 import { CircleNotch, ShoppingBag } from 'phosphor-react'
 
 export function CheckoutButton({ product }: CheckoutButton) {
