@@ -9,7 +9,7 @@ https://thsirt-shop.vercel.app/
   The main goal of this project is to practice NextJS 13 with the app directory 
 </p>
 
-
+<hr/>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
