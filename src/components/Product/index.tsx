@@ -1,8 +1,10 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { priceFormat } from '@/utils'
 import { ProductType } from '@/interfaces'
+import { ShoppingBag } from 'phosphor-react'
 
 export function Product({ product }: { product: ProductType }) {
   return (
@@ -51,10 +53,15 @@ export function Product({ product }: { product: ProductType }) {
           group-hover:transition-all
         "
       >
-        <strong className="text-xl">{product.name}</strong>
-        <span className="text-xl text-green-30">
-          {priceFormat(product.price)}
+        <span className="flex flex-col">
+          <strong className="text-xl">{product.name}</strong>
+          <span className="text-xl text-green-30">
+            {priceFormat(product.price)}
+          </span>
         </span>
+        <button className="relative cursor-pointer rounded-md bg-green-50 p-3 transition-all hover:opacity-75">
+          <ShoppingBag size={24} />
+        </button>
       </footer>
     </Link>
   )

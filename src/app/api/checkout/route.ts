@@ -29,6 +29,5 @@ export async function POST(req: Request) {
       },
     ],
   })
-
   return NextResponse.json({ checkoutUrl: checkoutUrl.url, status: 201 })
 }
