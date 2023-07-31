@@ -1,7 +1,13 @@
-# A Production project 
+# Production project 
 https://thsirt-shop.vercel.app/
 
 ![Screenshot from 2023-07-31 19-31-22](https://github.com/eriket0107/thsirt-shop/assets/91575045/009a3a7c-1ade-4d69-a61d-5a3b09f1ee95)
+
+## This Project is made by me: Erik 
+
+<p>
+  The main goal of this project is to practice NextJS 13 with the app directory 
+</p>
 
 
 
