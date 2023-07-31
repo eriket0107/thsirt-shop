@@ -1,6 +1,8 @@
 # A Production project 
 https://thsirt-shop.vercel.app/
-file:///home/eaoliveira/Pictures/Screenshots/Screenshot%20from%202023-07-31%2019-30-31.png
+
+![Screenshot from 2023-07-31 19-31-22](https://github.com/eriket0107/thsirt-shop/assets/91575045/009a3a7c-1ade-4d69-a61d-5a3b09f1ee95)
+
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
