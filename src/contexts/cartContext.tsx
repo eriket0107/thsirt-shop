@@ -18,7 +18,6 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
 
   function handleOpenModal() {
     setIsOpen(!isOpen)
-    console.log('isOpen:', isOpen)
   }
 
   function addItem(item: ProductType) {
