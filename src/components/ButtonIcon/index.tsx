@@ -1,8 +1,13 @@
 import { ButtonIconType } from '@/interfaces/buttonIconType'
 
-export function ButtonIcon({ icon, className, cartLength }: ButtonIconType) {
+export function ButtonIcon({
+  icon,
+  className,
+  cartLength,
+  ...rest
+}: ButtonIconType) {
   return (
-    <button className={className}>
+    <button className={className} {...rest}>
       {!!cartLength && (
         <span
           className="
