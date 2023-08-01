@@ -1,13 +1,14 @@
 'use client'
-import Image from 'next/image'
 import Link from 'next/link'
-
-import { useCart } from '@/contexts/cartContext'
+import Image from 'next/image'
 
 import logo from '@/assets/logo.svg'
+
 import { ShoppingBag } from 'phosphor-react'
 
 import { ButtonIcon } from '../ButtonIcon'
+
+import { useCart } from '@/contexts/cartContext'
 
 export function Header() {
   const { cart } = useCart()
