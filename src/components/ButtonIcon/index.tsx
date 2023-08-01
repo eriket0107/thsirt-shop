@@ -1,4 +1,4 @@
-import { ButtonIconType } from '@/interfaces/buttonIconType'
+import { ButtonIconType } from '@/interfaces'
 
 export function ButtonIcon({
   icon,
