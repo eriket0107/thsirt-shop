@@ -7,8 +7,8 @@ import { priceFormat } from '@/utils'
 
 import { ProductType } from '@/interfaces'
 
+import { Button } from '@/components/Button'
 import { ButtonText } from '@/components/ButtonText'
-import { CheckoutButton } from '@/components/CheckoutButton'
 
 interface ProductsPageProps {
   params: {
@@ -84,7 +84,26 @@ export default async function ProductPage({ params }: ProductsPageProps) {
               hover:transition
             "
           />
-          <CheckoutButton product={product} />
+          <Button
+            text="Colocar na sacola"
+            action="add"
+            product={product}
+            className="
+              flex 
+              w-full
+              items-center
+              justify-center
+              gap-2
+              rounded-lg 
+              bg-green-50 px-8 
+              py-5 
+              text-lg 
+              font-bold 
+              hover:opacity-75
+              hover:transition
+              disabled:hover:cursor-not-allowed
+              disabled:hover:opacity-75"
+          />
         </div>
       </div>
     </main>
