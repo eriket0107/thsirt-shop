@@ -3,5 +3,5 @@ import { ProductType } from '.'
 
 export interface CheckoutButton
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  product: ProductType
+  cart: ProductType[]
 }

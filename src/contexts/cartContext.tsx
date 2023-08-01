@@ -7,21 +7,27 @@ interface CartContextProps {
   cart: ProductType[]
   isModalOpen: boolean
   handleOpenModal: () => void
+  addItem: (item: ProductType) => void
 }
 
 const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({ children }: { children: ReactNode }) {
-  const [cart, useCart] = useState<ProductType[]>([])
+  const [cart, setCart] = useState<ProductType[]>([])
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   function handleOpenModal() {
     setIsOpen(!isOpen)
     console.log('isOpen:', isOpen)
   }
+
+  function addItem(item: ProductType) {
+    setCart((prev) => [...prev, item])
+  }
+
   return (
     <CartContext.Provider
-      value={{ cart, handleOpenModal, isModalOpen: isOpen }}
+      value={{ cart, handleOpenModal, isModalOpen: isOpen, addItem }}
     >
       {children}
     </CartContext.Provider>
