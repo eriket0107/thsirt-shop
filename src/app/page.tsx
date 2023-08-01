@@ -32,7 +32,7 @@ export default async function Home() {
   const products: ProductType[] = await getProducts()
 
   return (
-    <main className="min-h-home ml-auto flex w-full max-w-spaceLeft gap-12">
+    <main className="relative ml-auto flex max-h-screen w-full max-w-spaceLeft gap-12 ">
       <Slider>
         {products.map((product) => (
           <Product key={product.id} product={product} />

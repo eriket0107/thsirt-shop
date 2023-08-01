@@ -31,6 +31,9 @@ module.exports = {
       maxWidth: {
         spaceLeft: 'calc(100vw - ((100vw - 1180px) / 2))',
       },
+      boxShadow: {
+        cartMenu: '-4px 0px 30px 0px rgba(0, 0, 0, 0.80)',
+      },
     },
   },
   plugins: [],
