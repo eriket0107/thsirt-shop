@@ -45,8 +45,8 @@ export function Product({ product }: { product: ProductType }) {
           items-center 
           justify-between 
           rounded-md 
-          bg-gray-80/60 
-          p-8
+          bg-gray-80/80 
+          p-6
           opacity-0
           transition-transform
           group-hover:translate-y-0 
@@ -70,6 +70,7 @@ export function Product({ product }: { product: ProductType }) {
             transition-all 
             hover:opacity-75"
           icon={<ShoppingBag size={24} />}
+          onClick={() => alert('adicionado')}
         />
       </footer>
     </Link>
