@@ -1,17 +1,11 @@
-import { ReactNode } from 'react'
-
-interface ButtonIconType {
-  icon: ReactNode
-  className: string
-  cartLength?: number
-}
+import { ButtonIconType } from '@/interfaces/buttonIconType'
 
 export function ButtonIcon({ icon, className, cartLength }: ButtonIconType) {
   return (
     <button className={className}>
       {!!cartLength && (
         <span
-          className={`
+          className="
             absolute 
             bottom-9 
             left-8 
@@ -23,7 +17,7 @@ export function ButtonIcon({ icon, className, cartLength }: ButtonIconType) {
             rounded-full 
             bg-green-50 
             p-3
-            `}
+            "
         >
           {cartLength}
         </span>
