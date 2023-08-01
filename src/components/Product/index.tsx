@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { priceFormat } from '@/utils'
 import { ProductType } from '@/interfaces'
 import { ShoppingBag } from 'phosphor-react'
+import { ButtonIcon } from '../ButtonIcon'
 
 export function Product({ product }: { product: ProductType }) {
   return (
@@ -59,9 +60,17 @@ export function Product({ product }: { product: ProductType }) {
             {priceFormat(product.price)}
           </span>
         </span>
-        <button className="relative cursor-pointer rounded-md bg-green-50 p-3 transition-all hover:opacity-75">
-          <ShoppingBag size={24} />
-        </button>
+        <ButtonIcon
+          className="
+            relative 
+            cursor-pointer 
+            rounded-md 
+            bg-green-50 
+            p-3 
+            transition-all 
+            hover:opacity-75"
+          icon={<ShoppingBag size={24} />}
+        />
       </footer>
     </Link>
   )
