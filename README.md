@@ -22,11 +22,7 @@ https://thsirt-shop-axpw90apl-eriket0107.vercel.app/
 
 ![Screenshot from 2023-08-02 20-39-17](https://github.com/eriket0107/thsirt-shop/assets/91575045/d7e9118a-4eee-4106-a777-11a705a1fa45)
 
-<hr>
-
-
-
-<hr/>
+<hr />
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
