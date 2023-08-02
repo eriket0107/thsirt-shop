@@ -8,33 +8,31 @@ import { useCart } from '@/contexts/cartContext'
 
 import { CheckCircle, CircleNotch } from 'phosphor-react'
 
-export function Button({
-  cart: cartProducts,
-  text,
-  className,
-  action,
-  product,
-}: ButtonType) {
+export function Button({ text, className, action, product }: ButtonType) {
   const { cart, addItem } = useCart()
   const [loadingCheckout, setLoadingCheckout] = useState(false)
 
   const productInCart = cart?.some((item) => product?.id === item.id)
 
   async function handleCart() {
-    console.log(cart)
     setLoadingCheckout(true)
-
-    // try {
-    //   const response = await axios.post('/api/checkout', {
-    //     priceId: product.defaultPriceId,
-    //   })
-    //   const { checkoutUrl } = response.data
-    //   window.location.href = checkoutUrl
-    // } catch (err) {
-    //   console.log(err)
-    //   // ferramenta de tracking para capturar erro
-    //   alert('Falha ao redirecionar ao checkout')
-    // }
+    const cartBody = cart.map((item) => {
+      return {
+        price: item.defaultPriceId,
+        quantity: 1,
+      }
+    })
+    try {
+      const response = await axios.post('/api/checkout', {
+        cartBody,
+      })
+      const { checkoutUrl } = response.data
+      window.location.href = checkoutUrl
+    } catch (err) {
+      console.log(err)
+      // ferramenta de tracking para capturar erro
+      alert('Falha ao redirecionar ao checkout')
+    }
   }
 
   function handleAddProduct() {

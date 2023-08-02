@@ -1,18 +1,14 @@
 import { stripe } from '@/lib/stripe'
 import { NextResponse } from 'next/server'
 
-interface DataRequest {
-  priceId: string
-}
-
 export async function GET() {
   return NextResponse.json({ Message: 'Hello' })
 }
 
 export async function POST(req: Request) {
-  const { priceId }: DataRequest = await req.json()
+  const { cartBody } = await req.json()
 
-  if (!priceId)
+  if (!cartBody)
     return NextResponse.json({ Error: 'Price not found', status: 400 })
 
   const successUrl = `${process.env.NEXT_URL}/success?session_id={CHECKOUT_SESSION_ID}`
@@ -22,12 +18,7 @@ export async function POST(req: Request) {
     success_url: successUrl,
     cancel_url: cancelUrl,
     mode: 'payment',
-    line_items: [
-      {
-        price: priceId,
-        quantity: 1,
-      },
-    ],
+    line_items: cartBody,
   })
   return NextResponse.json({ checkoutUrl: checkoutUrl.url, status: 201 })
 }
