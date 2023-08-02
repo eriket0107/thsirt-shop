@@ -1,12 +1,15 @@
 'use client'
 
 import { useCart } from '@/contexts/cartContext'
-import { ButtonIcon } from '../ButtonIcon'
-import { X, ShoppingBagOpen } from 'phosphor-react'
+
 import { Button } from '../Button'
+import { ButtonIcon } from '../ButtonIcon'
+import { ProductCard } from '../ProductCard'
+
+import { X, ShoppingBagOpen } from 'phosphor-react'
 
 export function Cart() {
-  const { handleOpenModal, isModalOpen, cart } = useCart()
+  const { onOpenCart, isCartOpen, cart } = useCart()
   console.log(cart)
   return (
     <>
@@ -20,27 +23,27 @@ export function Cart() {
           bg-gray-80
           shadow-cartMenu
           transition-all
-          ${isModalOpen ? 'w-1/4' : '0'}
-          ${isModalOpen ? 'opacity-100' : 'opacity-0'}
+          ${isCartOpen ? 'w-1/4' : '0'}
+          ${isCartOpen ? 'opacity-100' : 'opacity-0'}
         `}
       >
-        {isModalOpen && (
+        {isCartOpen && (
           <main className="relative flex h-full flex-col justify-between p-12">
             <ButtonIcon
               icon={<X size={24} className="hover:scale-110" />}
               className="absolute right-0 top-0 p-6"
-              onClick={() => handleOpenModal()}
+              onClick={() => onOpenCart()}
             />
             <div className="h-full">
               <h2 className="mb-8 mt-6 text-xl font-bold text-gray-10">
                 Sacola de compras
               </h2>
               {cart.length ? (
-                <div>
+                <ul className="flex flex-col gap-6">
                   {cart.map((product) => (
-                    <div key={product.id}>{product.name}</div>
+                    <ProductCard key={product.id} product={product} />
                   ))}
-                </div>
+                </ul>
               ) : (
                 <div
                   className="

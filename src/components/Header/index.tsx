@@ -11,7 +11,7 @@ import { ButtonIcon } from '../ButtonIcon'
 import { useCart } from '@/contexts/cartContext'
 
 export function Header() {
-  const { cart, handleOpenModal } = useCart()
+  const { cart, onOpenCart } = useCart()
 
   const cartLength = cart.length > 0 ? cart.length : 0
 
@@ -32,7 +32,7 @@ export function Header() {
           hover:opacity-75"
         cartLength={cartLength}
         icon={<ShoppingBag size={24} />}
-        onClick={handleOpenModal}
+        onClick={onOpenCart}
       />
     </header>
   )

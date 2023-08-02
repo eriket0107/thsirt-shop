@@ -5,9 +5,10 @@ import { ProductType } from '@/interfaces'
 
 interface CartContextProps {
   cart: ProductType[]
-  isModalOpen: boolean
-  handleOpenModal: () => void
+  isCartOpen: boolean
+  onOpenCart: () => void
   addItem: (item: ProductType) => void
+  removeItem: (item: string) => void
 }
 
 const CartContext = createContext({} as CartContextProps)
@@ -16,7 +17,7 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<ProductType[]>([])
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  function handleOpenModal() {
+  function onOpenCart() {
     setIsOpen(!isOpen)
   }
 
@@ -24,9 +25,20 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
     setCart((prev) => [...prev, item])
   }
 
+  function removeItem(itemId: string) {
+    const filteredCart = cart.filter((product) => product.id !== itemId)
+    setCart([...filteredCart])
+  }
+
   return (
     <CartContext.Provider
-      value={{ cart, handleOpenModal, isModalOpen: isOpen, addItem }}
+      value={{
+        cart,
+        isCartOpen: isOpen,
+        onOpenCart,
+        addItem,
+        removeItem,
+      }}
     >
       {children}
     </CartContext.Provider>
