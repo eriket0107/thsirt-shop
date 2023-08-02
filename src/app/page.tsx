@@ -23,6 +23,7 @@ const getProducts = async (): Promise<ProductType[]> => {
       imageUrl: product.images[0],
       // @ts-expect-error expect null
       price: price.unit_amount / 100,
+      defaultPriceId: price.id,
     }
   })
   return products
