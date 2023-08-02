@@ -39,7 +39,7 @@ export function Button({
 
   function handleAddProduct() {
     if (!product) return alert('Erro ao adicionar produto.')
-    if (productInCart) return alert('Estre item já existe no carrinho.')
+    if (productInCart) return alert('Este item já existe no carrinho.')
     setLoadingCheckout(true)
     addItem(product)
   }

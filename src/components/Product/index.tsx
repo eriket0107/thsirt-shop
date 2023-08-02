@@ -6,13 +6,23 @@ import { priceFormat } from '@/utils'
 import { ProductType } from '@/interfaces'
 import { ShoppingBag } from 'phosphor-react'
 import { ButtonIcon } from '../ButtonIcon'
+import { useCart } from '@/contexts/cartContext'
 
 export function Product({ product }: { product: ProductType }) {
+  const { cart, addItem } = useCart()
+
+  const productInCart = cart?.some((item) => product?.id === item.id)
+  function handleAddProduct() {
+    if (!product) return alert('Erro ao adicionar produto.')
+
+    if (productInCart) return alert('Este item já existe no carrinho.')
+    addItem(product)
+  }
+
   return (
-    <Link
-      href={`/product/${product.id}`}
+    <div
       className="
-        keen-slider__slide 
+    keen-slider__slide 
         group  
         relative 
         flex 
@@ -25,15 +35,16 @@ export function Product({ product }: { product: ProductType }) {
         to-purple-500
         p-1
       "
-      prefetch={false}
     >
-      <Image
-        className="object-cover"
-        src={product.imageUrl}
-        alt={`Imagem de ${product.name}`}
-        width={520}
-        height={480}
-      />
+      <Link href={`/product/${product.id}`} prefetch={false}>
+        <Image
+          className="object-cover"
+          src={product.imageUrl}
+          alt={`Imagem de ${product.name}`}
+          width={520}
+          height={480}
+        />
+      </Link>
       <footer
         className="
           absolute 
@@ -61,6 +72,9 @@ export function Product({ product }: { product: ProductType }) {
           </span>
         </span>
         <ButtonIcon
+          icon={<ShoppingBag size={24} />}
+          onClick={() => handleAddProduct()}
+          disabled={productInCart}
           className="
             relative 
             cursor-pointer 
@@ -68,11 +82,12 @@ export function Product({ product }: { product: ProductType }) {
             bg-green-50 
             p-3 
             transition-all 
-            hover:opacity-75"
-          icon={<ShoppingBag size={24} />}
-          onClick={() => alert('adicionado')}
+            hover:bg-green-50/80
+            disabled:cursor-not-allowed
+            disabled:bg-green-50/50
+            "
         />
       </footer>
-    </Link>
+    </div>
   )
 }
