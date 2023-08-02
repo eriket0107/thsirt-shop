@@ -11,6 +11,7 @@ https://thsirt-shop-axpw90apl-eriket0107.vercel.app/
 <p>
   In this PR, my main objective was to implement new features while ensuring the existing base code remained fully operational for easy comparison. The primary focus of this contribution is to document the new implementations and share my knowledge through code.
 </p>
+![Screenshot from 2023-08-02 20-34-00](https://github.com/eriket0107/thsirt-shop/assets/91575045/4866163d-0458-4e07-a9e5-b3b95d4190ad)
 
 
 <hr>
