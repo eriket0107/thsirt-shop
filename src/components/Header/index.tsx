@@ -31,7 +31,7 @@ export function Header() {
       <Link href={'/'}>
         <Image src={logo} alt="Logo Ignite" />
       </Link>
-      {path === 'success' && (
+      {path !== '/success' && (
         <ButtonIcon
           cartLength={cartLength}
           icon={<ShoppingBag size={24} />}
