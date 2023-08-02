@@ -1,10 +1,12 @@
 'use client'
-import axios from 'axios'
 import { useState } from 'react'
+
+import axios from 'axios'
+
 import { ButtonType } from '@/interfaces'
+import { useCart } from '@/contexts/cartContext'
 
 import { CheckCircle, CircleNotch } from 'phosphor-react'
-import { useCart } from '@/contexts/cartContext'
 
 export function Button({
   cart: cartProducts,
