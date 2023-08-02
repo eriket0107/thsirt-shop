@@ -11,13 +11,14 @@ https://thsirt-shop-axpw90apl-eriket0107.vercel.app/
 <p>
   In this PR, my main objective was to implement new features while ensuring the existing base code remained fully operational for easy comparison. The primary focus of this contribution is to document the new implementations and share my knowledge through code.
 </p>
-![Screenshot from 2023-08-02 20-34-00](https://github.com/eriket0107/thsirt-shop/assets/91575045/4866163d-0458-4e07-a9e5-b3b95d4190ad)
+
 
 
 <hr>
 <p>
   The main goal of this project is to practice NextJS 13 with the app directory folder and challenge myself to learn more tricks about React and its environment. Additionally, I used this project as an opportunity to learn and implement Tailwind CSS, exploring its powerful utility-first approach for styling. This repository will serve as a learning and practice space, where I can share my progress and knowledge gained during the process. 
 </p>
+![Screenshot from 2023-08-02 20-34-58](https://github.com/eriket0107/thsirt-shop/assets/91575045/920c680d-7a9e-44c1-b7bf-0549200d70c2)
 
 <hr/>
 
