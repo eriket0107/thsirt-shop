@@ -86,7 +86,6 @@ export function Cart() {
                 </div>
               </div>
               <Button
-                cart={cart}
                 action="checkout"
                 text="Finalizar compra"
                 className="
