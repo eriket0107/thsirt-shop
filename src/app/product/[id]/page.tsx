@@ -36,7 +36,7 @@ const getProduct = async (productId: string): Promise<ProductType> => {
     name: product.name,
     imageUrl: product.images[0],
     // @ts-expect-error not null
-    price: priceFormat(price.unit_amount / 100),
+    price: price.unit_amount / 100,
     description: product.description || '',
     defaultPriceId: price.id,
   }
@@ -63,7 +63,9 @@ export default async function ProductPage({ params }: ProductsPageProps) {
         <div>
           <div className="mb-10 flex flex-col gap-4">
             <h1 className="text-3xl text-gray-30">{product.name}</h1>
-            <span className="text-3xl text-green-30">{product.price}</span>
+            <span className="text-3xl text-green-30">
+              {priceFormat(product.price)}
+            </span>
           </div>
           <p className="max-w-[520px]">{product.description}</p>
         </div>

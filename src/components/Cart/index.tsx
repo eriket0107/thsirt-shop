@@ -7,10 +7,18 @@ import { ButtonIcon } from '../ButtonIcon'
 import { ProductCard } from '../ProductCard'
 
 import { X, ShoppingBagOpen } from 'phosphor-react'
+import { useSummary } from '@/hooks'
+import { priceFormat } from '@/utils'
 
 export function Cart() {
   const { onOpenCart, isCartOpen, cart } = useCart()
-  console.log(cart)
+
+  const summary = useSummary(cart)
+
+  const cartQuantity = !!cart.length && cart.length
+  const cartQuantityText =
+    cart.length >= 2 ? 'Itens' : cart.length === 0 ? 'Nenhum Item' : 'Item'
+
   return (
     <>
       <div
@@ -66,11 +74,15 @@ export function Cart() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-between text-base text-gray-10">
                   <span>Quatidade</span>
-                  <span>3 itens</span>
+                  <span>
+                    {cartQuantity} {cartQuantityText}
+                  </span>
                 </div>
                 <div className="mb-14 flex justify-between font-bold text-gray-10">
                   <span className="text-lg">Valor total</span>
-                  <span className="text-2xl">R$ 270,00</span>
+                  <span className="text-2xl">
+                    {priceFormat(summary.totalAmount)}
+                  </span>
                 </div>
               </div>
               <Button
