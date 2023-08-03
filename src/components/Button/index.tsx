@@ -52,11 +52,13 @@ export function Button({ text, className, action, product }: ButtonType) {
     }
   }
 
+  const checkoutActionEnabled = action === 'checkout' && !cart.length
+
   return (
     <button
       className={className}
       onClick={handleButton}
-      disabled={loadingCheckout || productInCart}
+      disabled={loadingCheckout || productInCart || checkoutActionEnabled}
     >
       {loadingCheckout ? (
         <>
