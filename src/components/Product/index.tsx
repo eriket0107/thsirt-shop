@@ -22,7 +22,7 @@ export function Product({ product }: { product: ProductType }) {
   return (
     <div
       className="
-    keen-slider__slide 
+        keen-slider__slide 
         group  
         relative 
         flex 

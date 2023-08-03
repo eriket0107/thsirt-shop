@@ -22,8 +22,18 @@ export default function RootLayout({
 }) {
   return (
     <html className={roboto.className} lang="en">
-      <body className="bg-gray-90 text-gray-10">
-        <div className="flex min-h-screen flex-col items-start justify-center">
+      <body className="overflow-x-hidden">
+        <div
+          className="
+            flex 
+            min-h-screen
+            min-w-full
+            flex-col 
+            items-start 
+            justify-center 
+            bg-gray-90
+            text-gray-10"
+        >
           <CartContextProvider>
             <Header />
             {children}

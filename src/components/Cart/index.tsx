@@ -23,15 +23,17 @@ export function Cart() {
     <>
       <div
         className={`
-          max-w-[900]px 
           absolute
           right-0 
           top-0 
           h-screen 
+          max-w-[900px]
+          overflow-x-hidden
           bg-gray-80
-          shadow-cartMenu
-          transition-all
+          shadow-cartMenu 
+          transition-all 
           ${isCartOpen ? 'w-1/4' : '0'}
+          ${isCartOpen ? 'translate-x-0' : 'translate-x-1'}
           ${isCartOpen ? 'opacity-100' : 'opacity-0'}
         `}
       >
@@ -55,14 +57,14 @@ export function Cart() {
               ) : (
                 <div
                   className="
-                      flex 
-                      h-3/5
-                      items-center 
-                      justify-center 
-                      gap-2 
-                      rounded-lg 
-                      bg-gray-80
-                      shadow-xl
+                    flex 
+                    h-3/5
+                    items-center 
+                    justify-center 
+                    gap-2 
+                    rounded-lg 
+                    bg-gray-80
+                    shadow-xl
                       "
                 >
                   <span className="text-xl text-gray-10/25">Sacola vazia</span>
