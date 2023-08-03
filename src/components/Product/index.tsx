@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import { priceFormat } from '@/utils'
 import { ProductType } from '@/interfaces'
-import { ShoppingBag } from 'phosphor-react'
+import { CheckCircle, ShoppingBag } from 'phosphor-react'
 import { ButtonIcon } from '../ButtonIcon'
 import { useCart } from '@/contexts/cartContext'
 
@@ -72,7 +72,7 @@ export function Product({ product }: { product: ProductType }) {
           </span>
         </span>
         <ButtonIcon
-          icon={<ShoppingBag size={24} />}
+          icon={productInCart ? CheckCircle : ShoppingBag}
           onClick={() => handleAddProduct()}
           disabled={productInCart}
           className="

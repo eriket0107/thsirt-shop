@@ -1,7 +1,7 @@
 import { ButtonIconType } from '@/interfaces'
 
 export function ButtonIcon({
-  icon,
+  icon: Icon,
   className,
   cartLength,
   ...rest
@@ -27,7 +27,7 @@ export function ButtonIcon({
           {cartLength}
         </span>
       )}
-      {icon}
+      <Icon className="h-6 w-6" />
     </button>
   )
 }

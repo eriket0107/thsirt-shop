@@ -1,8 +1,7 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react'
+import { ButtonHTMLAttributes, ElementType } from 'react'
 
 export interface ButtonIconType
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon: ReactNode
-  className: string
+  icon: ElementType
   cartLength?: number
 }

@@ -38,8 +38,8 @@ export function Cart() {
         {isCartOpen && (
           <main className="relative flex h-full flex-col justify-between p-12">
             <ButtonIcon
-              icon={<X size={24} className="hover:scale-110" />}
-              className="absolute right-0 top-0 p-6"
+              icon={X}
+              className="absolute right-0 top-0 p-6 hover:scale-90"
               onClick={() => onOpenCart()}
             />
             <div className="h-full">

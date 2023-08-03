@@ -71,7 +71,6 @@ export default async function ProductPage({ params }: ProductsPageProps) {
         </div>
         <div className="flex flex-col">
           <ButtonText
-            icon="arrow"
             text="Voltar"
             href="/"
             className="

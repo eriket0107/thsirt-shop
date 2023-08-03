@@ -34,12 +34,12 @@ export function Header() {
       {path !== '/success' && (
         <ButtonIcon
           cartLength={cartLength}
-          icon={<ShoppingBag size={24} />}
+          icon={ShoppingBag}
           onClick={onOpenCart}
           className="
-          relative 
-          cursor-pointer 
-          rounded-md 
+            relative 
+            cursor-pointer 
+            rounded-md 
             bg-gray-80 
             p-3 
             transition-all 
