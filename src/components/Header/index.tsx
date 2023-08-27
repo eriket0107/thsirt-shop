@@ -14,7 +14,6 @@ import { useCart } from '@/contexts/cartContext'
 export function Header() {
   const { cart, onOpenCart } = useCart()
   const path = usePathname()
-
   const cartLength = cart.length > 0 ? cart.length : 0
 
   return (

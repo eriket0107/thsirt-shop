@@ -8,7 +8,6 @@ async function getSessionProduct(sessionId: string) {
     expand: ['line_items', 'line_items.data.price.product'],
   })
 
-  console.log(session)
   // @ts-expect-error expect null
   const costumerName = session.customer_details.name
   // @ts-expect-error expect null

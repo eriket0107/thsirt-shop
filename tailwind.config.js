@@ -34,6 +34,40 @@ module.exports = {
       boxShadow: {
         cartMenu: '-4px 0px 30px 0px rgba(0, 0, 0, 0.80)',
       },
+      keyframes: {
+        'cart-opened': {
+          '0%': {
+            visibility: 'hidden',
+            opacity: '0',
+            width: '0%',
+            transform: 'translateX(400px)',
+          },
+          '100%': {
+            visibility: 'visible',
+            opacity: '1',
+            transform: 'translateX(0)',
+            width: '25%',
+          },
+        },
+        'cart-closed': {
+          '0%': {
+            visibility: 'visible',
+            opacity: '1',
+            transform: 'translateX(0)',
+            width: '25%',
+          },
+          '100%': {
+            visibility: 'hidden',
+            opacity: '0',
+            transform: 'translateX(400px)',
+            width: '0%',
+          },
+        },
+      },
+      animation: {
+        'slide-in': 'cart-opened 300ms ease-in forwards',
+        'slide-out': 'cart-closed 300ms ease-in forwards',
+      },
     },
   },
   plugins: [],
