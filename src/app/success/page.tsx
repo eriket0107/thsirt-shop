@@ -11,15 +11,19 @@ async function getSessionProduct(sessionId: string) {
   // @ts-expect-error expect null
   const costumerName = session.customer_details.name
   // @ts-expect-error expect null
-  const product = session.line_items.data[0].price.product as Stripe.Product
+  const responseProducts = session.line_items.data
 
-  return {
-    costumerName,
-    product: {
+  const products = responseProducts.map((item) => {
+    const product = item.price?.product as Stripe.Product
+
+    return {
+      id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-    },
-  }
+    }
+  })
+
+  return { name: costumerName, products }
 }
 
 export default async function Success({
@@ -28,28 +32,42 @@ export default async function Success({
   searchParams?: { [key: string]: string }
 }) {
   const sessionId = String(searchParams?.session_id)
-  const sessionProduct = await getSessionProduct(sessionId)
+  const sessionProducts = await getSessionProduct(sessionId)
+
+  const tshirtsQuantity =
+    !!sessionProducts.products.length && sessionProducts.products.length
+  const tshirtsQuantityText =
+    sessionProducts.products.length >= 2 ? 'camisetas' : 'camisa'
+
   return (
     <div className="flex w-full flex-col items-center justify-center">
       <h1 className="mx-auto mb-16 mt-20 text-3xl font-bold text-gray-10">
         Compra efetuada!
       </h1>
-      <Image
-        src={sessionProduct.product.imageUrl}
-        alt={`Imagem de ${sessionProduct.product.name}`}
-        placeholder="blur"
-        width={115}
-        height={106}
-        className="
-          rounded-lg 
-          bg-gradient-to-b
-          from-green-50
-          to-purple-500
-          "
-      />
+      <ul className="flex pl-[52px]">
+        {sessionProducts.products.map((product) => (
+          <li
+            key={product.id}
+            className="ml-[-52px] rounded-full shadow-cartMenu"
+          >
+            <Image
+              src={product.imageUrl}
+              alt={`Imagem de ${product.name}`}
+              width={130}
+              height={130}
+              className="
+            rounded-full 
+            bg-gradient-to-b
+            from-green-50
+            to-purple-500
+            "
+            />
+          </li>
+        ))}
+      </ul>
       <p className="mt-8 text-center text-2xl text-gray-30">
-        Uhuul <strong>{sessionProduct.costumerName}</strong>, sua
-        <strong> {sessionProduct.product.name}</strong>
+        Uhuul <strong>{sessionProducts.name}</strong>, sua compra de{' '}
+        {tshirtsQuantity} {tshirtsQuantityText}
         <br />
         já está a caminho da sua casa.
       </p>

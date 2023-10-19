@@ -7,8 +7,8 @@ import { priceFormat } from '@/utils'
 
 import { ProductType } from '@/interfaces'
 
+import { Button } from '@/components/Button'
 import { ButtonText } from '@/components/ButtonText'
-import { CheckoutButton } from '@/components/CheckoutButton'
 
 interface ProductsPageProps {
   params: {
@@ -36,7 +36,7 @@ const getProduct = async (productId: string): Promise<ProductType> => {
     name: product.name,
     imageUrl: product.images[0],
     // @ts-expect-error not null
-    price: priceFormat(price.unit_amount / 100),
+    price: price.unit_amount / 100,
     description: product.description || '',
     defaultPriceId: price.id,
   }
@@ -63,13 +63,14 @@ export default async function ProductPage({ params }: ProductsPageProps) {
         <div>
           <div className="mb-10 flex flex-col gap-4">
             <h1 className="text-3xl text-gray-30">{product.name}</h1>
-            <span className="text-3xl text-green-30">{product.price}</span>
+            <span className="text-3xl text-green-30">
+              {priceFormat(product.price)}
+            </span>
           </div>
           <p className="max-w-[520px]">{product.description}</p>
         </div>
         <div className="flex flex-col">
           <ButtonText
-            icon="arrow"
             text="Voltar"
             href="/"
             className="
@@ -84,7 +85,26 @@ export default async function ProductPage({ params }: ProductsPageProps) {
               hover:transition
             "
           />
-          <CheckoutButton product={product} />
+          <Button
+            text="Colocar na sacola"
+            action="add"
+            product={product}
+            className="
+              flex 
+              w-full
+              items-center
+              justify-center
+              gap-2
+              rounded-lg 
+              bg-green-50 px-8 
+              py-5 
+              text-lg 
+              font-bold 
+              hover:opacity-75
+              hover:transition
+              disabled:hover:cursor-not-allowed
+              disabled:hover:opacity-75"
+          />
         </div>
       </div>
     </main>

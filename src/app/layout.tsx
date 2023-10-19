@@ -1,7 +1,12 @@
-import { Header } from '@/components/Header'
 import './globals.css'
+
 import type { Metadata } from 'next'
+
 import { Roboto } from 'next/font/google'
+import { Header } from '@/components/Header'
+
+import { CartContextProvider } from '@/contexts/cartContext'
+import { Cart } from '@/components/Cart'
 
 const roboto = Roboto({ weight: ['400'], subsets: ['latin'] })
 
@@ -17,10 +22,23 @@ export default function RootLayout({
 }) {
   return (
     <html className={roboto.className} lang="en">
-      <body className="bg-gray-90 text-gray-10">
-        <div className="flex min-h-screen flex-col items-start justify-center">
-          <Header />
-          {children}
+      <body className="overflow-x-hidden">
+        <div
+          className="
+            flex 
+            min-h-screen
+            min-w-full
+            flex-col 
+            items-start 
+            justify-center 
+            bg-gray-90
+            text-gray-10"
+        >
+          <CartContextProvider>
+            <Header />
+            {children}
+            <Cart />
+          </CartContextProvider>
         </div>
       </body>
     </html>
